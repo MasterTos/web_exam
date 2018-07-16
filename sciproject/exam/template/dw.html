@@ -1,4 +1,4 @@
-<div class="headTop" >
+<div class="headTop " >
 {% include 'base1.html' %}
 <div>
 {% load static %}
@@ -18,18 +18,17 @@
   {% endblock %}
 </head>
 <body style="font-family: Kanit">
-
+<br>
 {% block content %}
 {% if request.user.is_authenticated %}
-<br>
+<div class="title">ระบบเบิกค่าตรวจข้อสอบ</div><br>
 
-<div id="content">
-</div>
-  <div class="py-1">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="nav nav-tabs">
+
+  <div class="py-1" >
+    <div class="container" style="border: none;">
+      <div class="row" >
+        <div class="col-md-12"  >
+          <ul class="nav nav-tabs"">
             <li class="nav-item">
               <a href="{% url 'LacListView' %}"class="nav-link"><i class="fa fa-home fa-home" style="margin-left: -10px;"></i>Home</a>
             </li>
@@ -54,7 +53,7 @@
                     {% csrf_token %}
                     {{ form }}
                     <div class="select1">
-                    <select class="form-control select1" id = "academic_year " name="academic_year">
+                    <select class="form-control select1 " id = "academic_year " name="academic_year">
 
                       <!--  -->
                     {% for name in thing_list %}
@@ -73,9 +72,9 @@
       </div>
     </div>
   </div>
-  <div class="a1a2" style="width: 117.42%;margin-left: -10%">
+<!--   <div class="a1a2" style="width: 117.42%;margin-left: -10%">
   {% include 'base2.html' %}
-  </div>
+  </div> -->
  
 {% else %}
 <div class="py-3">
@@ -95,9 +94,8 @@
     </div>
   </div>
 
-  <body class="foot">
-      {% include 'base2.html' %}
-</body>
+
+      
 
  {% endif %}
 
@@ -110,4 +108,4 @@
 </body>
 </html>  
 
-
+{% include 'base2.html' %}

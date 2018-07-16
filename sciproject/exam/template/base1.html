@@ -32,14 +32,14 @@
             <div class="uk-navbar-right" style="display: inline-block;">
                 {% if request.user.is_authenticated %}
                     <article class="uk-comment">
-                    <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
+                    <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid style="float: right;">
                         <div class="uk">
-                        <img class="uk1" src="{% static 'img/avatar.png' %}" alt="">
+                        <!-- <img class="uk1" src="{% static 'img/avatar.png' %}" alt=""> -->
                         
                         <div class="uk2">
-                        <h4 class="button2" style="color:gray"><a class="uk-link-reset" href="#" > {{user.username}} </a></h4>
+                        <h4 class="button2" style="color:gray;font-weight: bold"><a class="uk-link-reset" href="#" > {{user.username}} </a></h4>
                         <ul class="button3">
-                            <li><a href="{% url 'logout' %}" style="color:red; ">Logout</a></li>
+                            <li><a href="{% url 'logout' %}" class="lgout">Log out</a></li>
                         </ul>
                         </div>
                         </div>
@@ -57,46 +57,5 @@
 </body>
 </html>
 <style type="text/css">
-
-.button1{
-  background-color: #b30000;
-  transition: all 1.2s ease-out;
-  width: 90%;
-  margin-right: 30px;
-  margin-left: 40px;
-  float: right;
-  max-width: 100px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.button1:hover{
-  background-color:  #ffcc00;
-}
-.uk1{
-  float: left;
-  height: 40px;
-  margin-top: 20%;
-  margin-right: 10px;
-}
-.uk{
-    width: 200px;
-    max-width: 200px;
-}
-.uk2{
-    display: block;
-}
-.button2,.button3{
-    margin-top: 25px;
-}
-.button3{
-    list-style-type: none;
-    margin-top: -20px;
-    text-decoration: none;
-}
-.uk-comment{
-    margin-right: 40px;
-    min-width: 100%;
-    overflow: hidden;
-}
 
 </style>

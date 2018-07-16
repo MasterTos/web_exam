@@ -1,4 +1,4 @@
-<div class="headTop" >
+<div class="headTop toptop" >
 {% include 'base1.html' %}
 <div>
 {% load static %}
@@ -16,19 +16,18 @@
 
 </head>
 
-<body style="font-family: Kanit;overflow: hidden; margin-top: -10px;transform: scale(1);" >
+<body style="font-family: Kanit;overflow: hidden; margin-top: -10px;transform: scale(1);" ><br>
 {% block content %}
 
 
 
 {% if request.user.is_authenticated %}
-<br>
-<div id="content">
-</div>
-  <div class="py-1"  >
+
+  <div class="title">ระบบเบิกค่าตรวจข้อสอบ</div><br>
+  <div class="py-1" >
       <div class="row">
         <div class="col-md-12">
-          <ul class="nav nav-tabs">
+          <ul class="nav nav-tabs" >
             <li class="nav-item">
               <a href="{% url 'LacListView' %}"class="active nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
             </li>
@@ -49,11 +48,11 @@
               <div class="row border-primary">
                   <div class="con1"> 
                     <label class="c1">รหัสวิชา &nbsp;&nbsp;</label>
-                    <input name = "sid" id= "sid" type="Course" class="form-control border border-info " placeholder = "CS285" required> 
+                    <input name = "sid" id= "sid" type="Course" class="form-control border border-info px2" placeholder = "CS285" required> 
                   </div>
                 <div class="con2"> 
                   <label class="c1">ปีการศึกษา</label>
-                  <input type="Course" id="sid" class="form-control border border-info" placeholder = "2/2560" name="academic_year" required >
+                  <input type="Course" id="sid" class="form-control border border-info px2" placeholder = "2/2560" name="academic_year" required >
                 </div>
               
 
@@ -81,7 +80,7 @@
               <div class="row border-primary" >
                 <div class="con2">
                   <label class="c1">ประเภทข้อสอบ</label> 
-                  <select class="form-control widthSelect" name = "test_type">
+                  <select class="form-control widthSelect px2" name = "test_type">
                         <option class="form-control border border-info" value="0">อัตนัย</option>
                         <option class="form-control border border-info" value="1">ปรนัย</option>
                         <option class="form-control border border-info" value="2">อัตนัย+ปรนัย</option>
@@ -93,7 +92,7 @@
                 <div class="con2">
                   <div class="form-group"> 
                     <label for="exampleInputEmail1 " class="c1">ประเภทการสอน</label> 
-                    <select class="form-control widthSelect" name = "instructor_type">               
+                    <select class="form-control widthSelect px2" name = "instructor_type">               
                       <option value="0">เป็นวิชาสอนท่านเดียว</option>
                       <option value="1">เป็นวิชาสอนร่วม</option>
                     </select> 
@@ -113,7 +112,7 @@
                   <tbody>
                     <tr>
                       <th class="text-center">
-                        <br>ลำดับที่</th>
+                        <br>ลำดับ</th>
                       <th class="text-center">
                         <br>จำนวนนักศึกษา
                         <br>&nbsp;ที่เข้าสอบ(คน)</th>
@@ -126,7 +125,7 @@
                         <input class="text-center nobackG"  id="num" value="1" size="4" readonly >                 
                       </td>                   
                       <td>
-                      <input class="form-control text-center" id = "TotalStu1" name="TotalStu1" size="8" value="{{current_name}}" type="number" min="0" required style="width: 70%;">
+                      <input class="form-control text-center xx" id = "TotalStu1" name="TotalStu1" size="8" value="{{current_name}}" type="number" min="0" required style="width: 70%;">
                       </td>
                       <td > 
                         <div class="autocomplete" style="width:110%;">
@@ -144,7 +143,7 @@
                         <input class=" text-center nobackG"  id="num" value="2" size="4" readonly>                   
                       </td>
                       <td>
-                      <input class="form-control text-center" id="TotalStu2" name="TotalStu2" size="8" value="{{current_name}}" type="number" min="0" style="width: 70%;">
+                      <input class="form-control text-center xx" id="TotalStu2" name="TotalStu2" size="8" value="{{current_name}}" type="number" min="0" style="width: 70%;">
                       </td>
                       <td >  
                         <div class="autocomplete" style="width:110%;">
@@ -347,9 +346,9 @@
             </div>
             </form>
  </div>
- <div class="a1a2" style="width: 117.42%;margin-left: -10%">
+<!--  <div class="a1a2" style="width: 117.42%;margin-left: -10%">
   {% include 'base2.html' %}
-  </div>  
+  </div>  --> 
 {% else %}
 
 <div class="py-3" >
@@ -359,18 +358,15 @@
             <div class="col-md">
               <form class="">
                 <div class="form-group text-center"> 
-                <label class="h1">Please login...</label>
+                <label class="h1" style="margin-left: 15%;">Please login...</label>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-<body class="foot">
-      {% include 'base2.html' %}
-</body>
-
 </div>
+
 
  {% endif %}
 
@@ -386,3 +382,6 @@
 </html>  
 
 
+<body class="foot">
+      {% include 'base2.html' %}
+</body>
