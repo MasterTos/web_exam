@@ -24,6 +24,8 @@ from exam import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    
     path(r'api/', include(router.urls)),
     path('', views.LacListView, name='LacListView'),
     path('Download/', views.SubjectListView, name='SubjectListView'),
