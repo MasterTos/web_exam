@@ -25,8 +25,7 @@ from exam import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'api/', include(router.urls)),
-    path('', views.LacListView),
-    path('form/', views.LacListView, name='LacListView'),
+    path('', views.LacListView, name='LacListView'),
     path('Download/', views.SubjectListView, name='SubjectListView'),
     path('jso/', views.jo, name='json'),
     path('oauth/', include('social_django.urls', namespace='social')),
