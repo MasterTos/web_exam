@@ -13,7 +13,8 @@ services:
     command: sh /code/run.sh
     volumes:
       - ./sciproject:/code
-      - /var/www/static/:/var/www/static/
+      - /var/www/exam/static/:/var/www/exam/static/
+      - /var/www/exam/media/:/var/www/exam/media/
        
     depends_on:
       - db_exam
@@ -25,7 +26,7 @@ services:
         - "80:80"
       volumes:
         - ./nginx/:/etc/nginx/conf.d/
-        - ./sciproject:/code
-        - /var/www/static/:/var/www/static/
+        - /var/www/exam/static/:/var/www/exam/static/
+        - /var/www/exam/media/:/var/www/exam/media/
       depends_on:
         - web_exam

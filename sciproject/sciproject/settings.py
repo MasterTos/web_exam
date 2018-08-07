@@ -23,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-*zw^9^+ofz0*uc4v5sfg)@a2r3e(v2tm+#x@nsbr#iq1fzw)m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-SOCIAL_AUTH_TU_KEY = 'B5Tj2w67duvh526HFKfq56r26KZDLqErOAhJFSHZ'
-SOCIAL_AUTH_TU_SECRET = 'MqeaPPYwDavT7btUqhFr2Hp8gnfHBlh4WJicA4quccxPnESmvoCjzkuNeOcx2Sdlc0KpLc7sxYqvQaJnkKG59OT7jjdko85tdIotle8M71ngm9sbspMZwINspGhjSG45'
+SOCIAL_AUTH_TU_KEY = 'ySFrKeFrWwnT4qcUEXurhi24D3hIyaO7Np16EcH0'
+SOCIAL_AUTH_TU_SECRET = 'aopfQdaK8ePqRaeq87Gsa0dh7ncB3gPNlpeoEDn3U1gHZI3iXrabgytJ46AtsWPx8sVchxojgafIZ37k9uriZSS96PRgr1lVy5Ee8pwPFurBuHWcmniTvLHAweDXOIjp'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web3','localhost']
 LOGIN_REDIRECT_URL = '/'
 
 # Application definition
@@ -102,8 +102,13 @@ WSGI_APPLICATION = 'sciproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db_exam',
+        'PORT': 5432,
     }
 }
 
@@ -143,7 +148,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-STATIC_ROOT = '/static/'
+STATIC_ROOT = '/var/www/exam/static/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
@@ -151,7 +156,7 @@ STATICFILES_DIRS = [
 ]
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), '/desktop/sciproject/static/')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media/'
+MEDIA_ROOT = '/var/www/exam/media/'
 REST_FRAMEWORK = {
    
 }
