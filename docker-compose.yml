@@ -1,11 +1,23 @@
 version: '2'
 
+networks:
+  proxy:
+    external: true
+  internal:
+    external: false
+
 services:
   db_exam:
     container_name: postgres_exam
-    image: postgres
+    image: postgres:alpine
     # build: ./postgres
     restart: always
+    labels:
+      - traefik.enable=false
+    networks:
+      - internal
+    volumes:
+      - /home/kubelab/data/exam_data:/var/lib/postgresql/data
 
   web_exam:
     container_name: web_exam
@@ -13,20 +25,34 @@ services:
     command: sh /code/run.sh
     volumes:
       - ./sciproject:/code
-      - /var/www/exam/static/:/var/www/exam/static/
-      - /var/www/exam/media/:/var/www/exam/media/
-       
+    networks:
+      - internal
+      - proxy
+    labels:
+      - "traefik.frontend.rule=Host:exam.service.sci.tu.ac.th;PathPrefix:/"
+      - traefik.backend=web_exam
+      - traefik.port=80
+      - traefix.weight=5
+      - traefik.docker.network:proxy
     depends_on:
       - db_exam
 
   nginx_exam:
       container_name: nginx_exam
-      image: nginx:latest
+      image: nginx:alpine
       ports:
         - "80:80"
       volumes:
-        - ./nginx/:/etc/nginx/conf.d/
-        - /var/www/exam/static/:/var/www/exam/static/
-        - /var/www/exam/media/:/var/www/exam/media/
+        - ./sciproject:/usr/share/nginx/html/
+      labels:
+        - traefik.enable=true
+        - traefik.backend=nginx_exam
+        - "traefik.frontend.rule=Host:exam.service.sci.tu.ac.th;PathPrefix:/static/"
+        - traefik.docker.network:proxy
+        - traefik.port=80
+        - traefik.weight=5
+      networks:
+        - internal
+        - proxy
       depends_on:
         - web_exam
