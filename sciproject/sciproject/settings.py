@@ -28,7 +28,7 @@ DEBUG = False
 SOCIAL_AUTH_TU_KEY = 'ySFrKeFrWwnT4qcUEXurhi24D3hIyaO7Np16EcH0'
 SOCIAL_AUTH_TU_SECRET = 'aopfQdaK8ePqRaeq87Gsa0dh7ncB3gPNlpeoEDn3U1gHZI3iXrabgytJ46AtsWPx8sVchxojgafIZ37k9uriZSS96PRgr1lVy5Ee8pwPFurBuHWcmniTvLHAweDXOIjp'
 
-ALLOWED_HOSTS = ['web3','localhost']
+ALLOWED_HOSTS = ['web3','localhost', 'exam.service.sci.tu.ac.th']
 LOGIN_REDIRECT_URL = '/'
 
 # Application definition
@@ -148,15 +148,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-STATIC_ROOT = '/var/www/exam/static/'
+STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
     #'/var/www/static/',
-]
+#]
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), '/desktop/sciproject/static/')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/var/www/exam/media/'
+MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'media'))
 REST_FRAMEWORK = {
    
 }

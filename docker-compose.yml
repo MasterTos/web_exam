@@ -40,8 +40,6 @@ services:
   nginx_exam:
       container_name: nginx_exam
       image: nginx:alpine
-      ports:
-        - "80:80"
       volumes:
         - ./sciproject:/usr/share/nginx/html/
       labels:
