@@ -32,8 +32,7 @@ services:
       - "traefik.frontend.rule=Host:exam.service.sci.tu.ac.th;PathPrefix:/"
       - traefik.backend=web_exam
       - traefik.port=80
-      - traefix.weight=5
-      - traefik.docker.network:proxy
+      - traefik.docker.network=proxy
     depends_on:
       - db_exam
 
@@ -45,10 +44,9 @@ services:
       labels:
         - traefik.enable=true
         - traefik.backend=nginx_exam
-        - "traefik.frontend.rule=Host:exam.service.sci.tu.ac.th;PathPrefix:/static/"
-        - traefik.docker.network:proxy
+        - "traefik.frontend.rule=Host:exam.service.sci.tu.ac.th;PathPrefix:/static/,/media/"
+        - traefik.docker.network=proxy
         - traefik.port=80
-        - traefik.weight=5
       networks:
         - internal
         - proxy
