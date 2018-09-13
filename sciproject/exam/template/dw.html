@@ -28,7 +28,7 @@
     <div class="container" style="border: none;">
       <div class="row" >
         <div class="col-md-12"  >
-          <ul class="nav nav-tabs">
+          <ul class="nav nav-tabs"">
             <li class="nav-item">
               <a href="{% url 'LacListView' %}"class="nav-link"><i class="fa fa-home fa-home" style="margin-left: -10px;"></i>Home</a>
             </li>
@@ -41,17 +41,34 @@
       </div>
     </div> 
   </div>
-
+<form action="/export/"  method="post">
+    {% csrf_token %}
+      {{ form }}
 <div class="py-0">
       <div class="row">
         <div class="col-md-12">
           <div class="card" >
+              <div class="con1 c0"> 
+                  <div class="card-header text-center " > โปรดเลือกสาขาวิชา </div>
+                    <div class="card-body center22">
+                        <select class="form-control widthSelect px2 "  name = "section" id="section">
+                        <option class="text-left" value="0">เคมี</option>
+                        <option class="text-left" value="1">สิ่งทอ</option>
+                        <option class="text-left" value="2">ฟิสิกส์</option>
+                        <option class="text-left" value="3">เทคโนโลยีชนบท</option>
+                        <option class="text-left" value="4">เทคโนโลยีชีวภาพ</option>
+                        <option class="text-left" value="5">เทคโนโลยีการเกษตร</option>
+                        <option class="text-left" value="6">คณิตศาสตร์และสถิติ</option>
+                        <option class="text-left" value="7">วิทยาการคอมพิวเตอร์</option>
+                        <option class="text-left" value="8">วิทยาศาสตร์สิ่งแวดล้อม</option>
+                        <option class="text-left" value="9">วิทยาศาสตร์และเทคโนโลยีอาหาร</option>
+                        
+                        </select>
+                  </div>   
             <div class="card-header text-center" > โปรดเลือกปีการศึกษา </div>
             <div class="card-body">
               
-                   <form action="/export/"  method="post">
-                    {% csrf_token %}
-                    {{ form }}
+
                     <div class="select1">
                     <select class="form-control select1 " id = "academic_year " name="academic_year">
 
@@ -65,13 +82,14 @@
                     <br><br>
               <div class="btn2">       
               <input class="btn btn-success text-light btn2" type="submit" value="Download"  > </div>
-                    </form>
+                    
               </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</form>
 <!--   <div class="a1a2" style="width: 117.42%;margin-left: -10%">
   {% include 'base2.html' %}
   </div> -->

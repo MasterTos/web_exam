@@ -112,6 +112,7 @@ a.uk-navbar-toggle:visited {
     .uk-form-width-large {
         width:200px
     }
+
 }
 
 @media screen and (max-width: 720px ){
@@ -119,4 +120,14 @@ a.uk-navbar-toggle:visited {
     .uk-form-width-large {
         width:250px
     }
+
+}
+
+@media screen and (max-width: 600px ){
+
+    td{
+        margin: 0;
+        padding: 0;
+    }
+
 }

@@ -23,13 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-*zw^9^+ofz0*uc4v5sfg)@a2r3e(v2tm+#x@nsbr#iq1fzw)m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-SOCIAL_AUTH_TU_KEY = 'ySFrKeFrWwnT4qcUEXurhi24D3hIyaO7Np16EcH0'
-SOCIAL_AUTH_TU_SECRET = 'aopfQdaK8ePqRaeq87Gsa0dh7ncB3gPNlpeoEDn3U1gHZI3iXrabgytJ46AtsWPx8sVchxojgafIZ37k9uriZSS96PRgr1lVy5Ee8pwPFurBuHWcmniTvLHAweDXOIjp'
+SOCIAL_AUTH_TU_KEY = 'B5Tj2w67duvh526HFKfq56r26KZDLqErOAhJFSHZ'
+SOCIAL_AUTH_TU_SECRET = 'MqeaPPYwDavT7btUqhFr2Hp8gnfHBlh4WJicA4quccxPnESmvoCjzkuNeOcx2Sdlc0KpLc7sxYqvQaJnkKG59OT7jjdko85tdIotle8M71ngm9sbspMZwINspGhjSG45'
 
-ALLOWED_HOSTS = ['web3','localhost', 'exam.service.sci.tu.ac.th']
+ALLOWED_HOSTS = []
 LOGIN_REDIRECT_URL = '/'
+
+
 
 # Application definition
 
